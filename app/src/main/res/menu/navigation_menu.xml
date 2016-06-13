@@ -4,12 +4,16 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/action_item1"
-            android:title="item1" />
+            android:id="@+id/action_home"
+            android:title="home" />
 
         <item
-            android:id="@+id/action_item2"
-            android:title="item2" />
+            android:id="@+id/action_login"
+            android:title="login" />
+
+        <item
+            android:id="@+id/action_about"
+            android:title="about" />
 
     </group>
 

@@ -1,24 +1,34 @@
-package com.tsongski.mdpractice;
+package com.tsongski.mdpractice.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+import com.tsongski.mdpractice.R;
+import com.tsongski.mdpractice.ui.fragment.HomeFragment;
+import com.tsongski.mdpractice.ui.fragment.LoginFragment;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private Snackbar mSnacker;
     private CoordinatorLayout mContainer;
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
+    private RecyclerView mRecycler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +43,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mContainer = (CoordinatorLayout) findViewById(R.id.container);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
+        mRecycler = (RecyclerView) findViewById(R.id.content);
+        mRecycler.setLayoutManager(new LinearLayoutManager(this));
+        mRecycler.setAdapter(new ContentAdapter());
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(toggle);
-
-
 
         createSnack();
     }
@@ -61,28 +73,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -99,7 +89,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         mDrawerLayout.closeDrawer(GravityCompat.START);
+//        switchFragment(menuItem.getItemId());
         return true;
     }
+
+    private void switchFragment(int id) {
+        Fragment f = null;
+        switch (id) {
+            case R.id.action_home:
+                f = new HomeFragment();
+                break;
+            case R.id.action_login:
+                f = new LoginFragment();
+                break;
+            case R.id.action_about:
+                break;
+        }
+        if (f == null)
+            return;
+//        getSupportFragmentManager().beginTransaction()
+//                .replace(R.id.content, f)
+//                .commit();
+    }
+
+    private class ContentAdapter extends RecyclerView.Adapter<ContentViewHolder> {
+        @Override
+        public ContentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new ContentViewHolder(LayoutInflater.from(MainActivity.this).inflate(R.layout.home_name_item, parent, false));
+        }
+
+        @Override
+        public void onBindViewHolder(ContentViewHolder holder, int position) {
+            holder.name.setText("aaa");
+        }
+
+        @Override
+        public int getItemCount() {
+            return 20;
+        }
+    }
+
+    private class ContentViewHolder extends RecyclerView.ViewHolder {
+        TextView name;
+
+        public ContentViewHolder(View view) {
+            super(view);
+            name = (TextView) view.findViewById(R.id.name);
+        }
+    }
+
 
 }
