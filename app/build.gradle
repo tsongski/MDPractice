@@ -6,9 +6,9 @@ android {
 
     signingConfigs {
         release {
-            keyAlias 'welearn-android'
+            keyAlias 'md'
             keyPassword 'aA111111'
-            storeFile file('../welearn-android.keystore')
+            storeFile file('../md.jks')
             storePassword 'aA111111'
         }
     }
