@@ -8,6 +8,8 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:gravity="center"
+        android:background="@drawable/ripple_bg"
         android:text="abc" />
 
 </LinearLayout>

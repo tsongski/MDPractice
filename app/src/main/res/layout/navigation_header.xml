@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.activity.MainActivity"
     android:clickable="true"
+    android:background="@color/main_color"
     android:orientation="vertical">
 
     <TextView

@@ -1,5 +1,6 @@
 package com.tsongski.mdpractice.ui.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout mDrawerLayout;
     private NavigationView mNavigationView;
     private RecyclerView mRecycler;
+    private static Activity mMainActivity;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(toggle);
-
+        setStaticActivity();
         createSnack();
     }
 
@@ -70,6 +73,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 createSnack();
             }
         });
+    }
+
+    private void setStaticActivity() {
+        mMainActivity = this;
     }
 
     @Override
@@ -120,7 +127,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         @Override
         public void onBindViewHolder(ContentViewHolder holder, int position) {
-            holder.name.setText("aaa");
+            holder.name.setText(String.valueOf((char) ('a' + position)));
+            holder.name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
         }
 
         @Override
