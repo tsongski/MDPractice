@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
 		navigationView.setNavigationItemSelectedListener(this);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		switchFragment(R.id.action_home);
 	}
 
 	@Override
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 		return true;
 	}
 
-	private void switchFragment(int id) {
+	private boolean switchFragment(int id) {
 		Fragment f = null;
 		switch (id) {
 			case R.id.action_home:
@@ -57,10 +58,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 				break;
 		}
 		if (f == null)
-			return;
+			return false;
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.content, f)
 				.commit();
+		return true;
 	}
 
 }
