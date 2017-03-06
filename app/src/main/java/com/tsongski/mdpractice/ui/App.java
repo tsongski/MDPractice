@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.tsongski.mdpractice.BuildConfig;
+import com.tsongski.mdpractice.ui.component.Device;
 
 import java.util.Properties;
 
@@ -21,7 +22,10 @@ public class App extends Application {
 	public static final String KEY_APP_MODE_DEFAULT = "product";
 
 	private static App sInstance;
+	// 应用属性／配置，只读
 	private Properties mProps;
+	// 应用首选项，可持久化，可修改
+	private Preferences mPrefs;
 
 	public static App Instance() {
 		return sInstance;
@@ -32,11 +36,17 @@ public class App extends Application {
 	@Override
 	public void onCreate() {
 		super.onCreate();
+		Device.create(this);
 		sUIHandler = onCreateUIHandler();
+		mPrefs = new PreferenceSharedPreferences();
 	}
 
 	protected Handler getUIHandler() {
 		return sUIHandler;
+	}
+
+	public Preferences getPreference() {
+		return mPrefs;
 	}
 
 	protected Handler onCreateUIHandler() {

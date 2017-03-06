@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tsongski.mdpractice.R;
-import com.tsongski.mdpractice.ui.Utils;
+import com.tsongski.mdpractice.ui.util.Utils;
 
 import java.io.File;
 

@@ -1,4 +1,4 @@
-package com.tsongski.mdpractice.ui;
+package com.tsongski.mdpractice.ui.util;
 
 import android.app.Activity;
 import android.content.Context;
