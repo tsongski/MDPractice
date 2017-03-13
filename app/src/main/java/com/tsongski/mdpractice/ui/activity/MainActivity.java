@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.tsongski.mdpractice.R;
+import com.tsongski.mdpractice.ui.fragment.DrawerFragment;
 import com.tsongski.mdpractice.ui.fragment.HomeFragment;
 import com.tsongski.mdpractice.ui.fragment.MSTestFragment;
 
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 				f = new MSTestFragment();
 				break;
 			case R.id.action_about:
+				f = new DrawerFragment();
 				break;
 		}
 		if (f == null)

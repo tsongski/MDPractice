@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
+	<group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/action_home"
-            android:title="home" />
+		<item
+			android:id="@+id/action_home"
+			android:title="@string/page1"/>
 
-        <item
-            android:id="@+id/action_login"
-            android:title="login" />
+		<item
+			android:id="@+id/action_login"
+			android:title="@string/page2"/>
 
-        <item
-            android:id="@+id/action_about"
-            android:title="about" />
+		<item
+			android:id="@+id/action_about"
+			android:title="@string/page3"/>
 
-    </group>
+	</group>
 
 </menu>

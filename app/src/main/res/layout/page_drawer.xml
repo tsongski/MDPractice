@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/colorAccent">
+
+	<android.support.design.widget.AppBarLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<android.support.v7.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			android:background="@color/colorPrimary"
+			app:popupTheme="@style/AppTheme.PopupOverlay"
+			app:theme="@style/AppTheme.AppBarOverlay.BigText"/>
+	</android.support.design.widget.AppBarLayout>
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+		<android.support.v7.widget.RecyclerView
+			android:id="@+id/rv1"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
+
+		<LinearLayout
+			android:id="@+id/drawer"
+			android:layout_width="160dp"
+			android:layout_height="match_parent"
+			android:layout_gravity="end"
+			android:alpha="0.2"
+			android:background="@color/white"
+			android:orientation="horizontal">
+
+			<android.support.v7.widget.RecyclerView
+				android:id="@+id/rv2"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"/>
+		</LinearLayout>
+
+	</FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>
