@@ -77,11 +77,9 @@ public class DrawerFragment extends Fragment {
 		}
 	}
 
-	int windowWidth;
 
 	private void closeDrawer() {
 		isOpen = false;
-		windowWidth = getActivity().getWindowManager().getDefaultDisplay().getWidth();
 		mDrawer.animate()
 				.setDuration(300)
 				.translationXBy(-getResources().getDimensionPixelOffset(R.dimen.drawer_width))
@@ -90,8 +88,6 @@ public class DrawerFragment extends Fragment {
 
 	private void openDrawer() {
 		isOpen = true;
-		windowWidth = getActivity().getWindowManager().getDefaultDisplay().getWidth();
-
 		mDrawer.animate()
 				.translationXBy(getResources().getDimensionPixelOffset(R.dimen.drawer_width))
 				.setDuration(300)

@@ -10,5 +10,6 @@
 	<string name="page1">ScreenShot-Test</string>
 	<string name="page2">MS-Test</string>
 	<string name="page3">Drawer-Test</string>
+	<string name="page4">PdfView</string>
 
 </resources>

@@ -12,6 +12,7 @@ import com.tsongski.mdpractice.R;
 import com.tsongski.mdpractice.ui.fragment.DrawerFragment;
 import com.tsongski.mdpractice.ui.fragment.HomeFragment;
 import com.tsongski.mdpractice.ui.fragment.MSTestFragment;
+import com.tsongski.mdpractice.ui.fragment.PdfFragment;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -57,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 				break;
 			case R.id.action_about:
 				f = new DrawerFragment();
+				break;
+			case R.id.action_pdf:
+				f = new PdfFragment();
 				break;
 		}
 		if (f == null)
